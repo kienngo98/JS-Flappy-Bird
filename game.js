@@ -1,6 +1,6 @@
  const RAD = Math.PI/180;
  const scrn = document.getElementById('canvas');
- const sctx = scrn.getContext("2d");
+ const sctx = scrn.getContext("2d", {alpha:false});
  scrn.tabIndex = 1;
  scrn.addEventListener("click",()=>{
     switch (state.curr) {
@@ -281,6 +281,7 @@
             case state.gameOver :
                     sctx.lineWidth = "2";
                     sctx.font = "40px Squada One";
+
                     let sc = `SCORE :     ${this.score.curr}`;
                     try {
                         this.score.best = Math.max(this.score.curr,localStorage.getItem("best"));
